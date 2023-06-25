@@ -1,5 +1,7 @@
 '''Задача 10: На столе лежат n монеток. Некоторые из них лежат вверх решкой, а некоторые – гербом. Определите минимальное число монеток,
 которые нужно перевернуть, чтобы все монетки были повернуты вверх одной и той же стороной. Выведите минимальное количество монет, которые нужно перевернуть'''
+import math
+
 
 def coins():
     print("Переворачиваем монеты")
@@ -32,18 +34,27 @@ def guess_numbers():
             if (x + y == sum_x_y) & (x * y == product_x_y) & (not solution_found):
                 print(f'Результат: x={x}, y={y}')
                 solution_found = True
-                break
     if (not solution_found):
         print(f'Нет решения!')
+    print("\n")
 
 
 '''Задача 14: Требуется вывести все целые степени двойки (т.е. числа вида 2k), не превосходящие числа N.'''
 
 def powers_of_two():
-    print(f'2^n')
+    print("Ищем целые степени двойки")
+    N = int(input('Введите число, до которого необходимо вывести целые степени двойки: '))
+
+    cur_power = 0
+    cur_result = math.pow(2,cur_power)
+    while cur_result <= N:
+        print(f'{cur_result:.0f}, ', end='')
+        cur_power+=1
+        cur_result = math.pow(2, cur_power)
+    print("\n")
 
 if __name__ == '__main__':
-    #coins()
-    #guess_numbers()
+    coins()
+    guess_numbers()
     powers_of_two()
 
